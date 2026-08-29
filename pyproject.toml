@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "local-whisper"
+version = "0.1.0"
+description = "Local-first, hotkey-driven voice dictation for Linux — speak, release, and the text lands in the field you are working in."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "local-whisper contributors" }]
+keywords = ["whisper", "dictation", "speech-to-text", "kde", "wayland", "linux"]
+classifiers = [
+    "Environment :: X11 Applications :: Qt",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Topic :: Multimedia :: Sound/Audio :: Speech",
+]
+
+dependencies = [
+    "PySide6-Essentials>=6.6",
+    "faster-whisper>=1.1.0",
+    "sounddevice>=0.4.6",
+    "numpy>=1.24",
+]
+
+[project.optional-dependencies]
+# Hold-to-talk hotkeys and the built-in uinput typing backend.
+hotkey = ["evdev>=1.6"]
+dev = ["pytest>=7.4"]
+
+[project.scripts]
+local-whisper = "localwhisper.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/over-code/local-whisper"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+localwhisper = ["assets/*.svg", "assets/*.wav"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

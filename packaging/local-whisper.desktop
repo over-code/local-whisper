@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Local Whisper
+GenericName=Voice dictation
+Comment=Hold a key, speak, and the text lands in the field you are working in
+Exec=local-whisper daemon
+Icon=local-whisper
+Terminal=false
+Categories=Utility;AudioVideo;Accessibility;
+Keywords=dictation;speech;voice;whisper;transcribe;stt;
+StartupNotify=false
+X-GNOME-Autostart-enabled=true

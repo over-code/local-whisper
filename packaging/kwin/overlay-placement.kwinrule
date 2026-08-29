@@ -1,0 +1,21 @@
+[local-whisper-overlay]
+Description=Local Whisper overlay placement
+# Match the dictation pill by its window class.
+wmclass=local-whisper
+wmclasscomplete=false
+wmclassmatch=1
+# Keep it above everything, off the taskbar, and out of the focus chain.
+above=true
+aboverule=2
+skiptaskbar=true
+skiptaskbarrule=2
+skippager=true
+skippagerrule=2
+skipswitcher=true
+skipswitcherrule=2
+acceptfocus=false
+acceptfocusrule=2
+# Pin it to the bottom centre of a 1920x1080 screen; adjust to taste in
+# System Settings → Window Management → Window Rules.
+position=780,940
+positionrule=3

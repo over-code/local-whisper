@@ -1,0 +1,13 @@
+# Let members of the "input" group synthesise keystrokes through /dev/uinput.
+#
+# This is what the built-in uinput backend (and ydotool) needs in order to type
+# into Wayland windows. Install with:
+#
+#   sudo cp 99-local-whisper-uinput.rules /etc/udev/rules.d/
+#   sudo udevadm control --reload-rules && sudo udevadm trigger
+#   sudo modprobe uinput && echo uinput | sudo tee /etc/modules-load.d/uinput.conf
+#
+# Note the trade-off: anything running as your user can then synthesise input
+# and read your keyboard. That is inherent to typing into other applications on
+# Linux — if you would rather not grant it, use the clipboard insertion method.
+KERNEL=="uinput", GROUP="input", MODE="0660", OPTIONS+="static_node=uinput"
